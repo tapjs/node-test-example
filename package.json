@@ -1,0 +1,17 @@
+{
+  "name": "@tapjs/node-test-example",
+  "version": "1.0.0",
+  "description": "Showing interoperability between node --test and tap",
+  "type": "module",
+  "devDependencies": {
+    "tap": "^18.0.1"
+  },
+  "scripts": {
+    "test:tap": "tap",
+    "test:node": "node --test",
+    "test": "npm run test:tap && npm run test:node"
+  },
+  "engines": {
+    "node": ">=20.6.1"
+  }
+}
