@@ -20,19 +20,23 @@ t.test('stringOrNull', t => {
   t.end()
 })
 
-t.test('uhoh, this one throws', t => {
-  t.equal(thrower(0), '1970-01-01T00:00:00.000Z')
-  t.equal(thrower(1234567891011), '2009-02-13T23:31:31.011Z')
-  t.equal(thrower({}), 'Invalid Date')
-  t.end()
-})
+t.test('suite of tests that fail', t => {
+  t.test('uhoh, this one throws', t => {
+    t.equal(thrower(0), '1970-01-01T00:00:00.000Z')
+    t.equal(thrower(1234567891011), '2009-02-13T23:31:31.011Z')
+    t.equal(thrower({}), 'Invalid Date')
+    t.end()
+  })
 
-t.test('failer', t => {
-  t.equal(failer(1), '2')
-  t.equal(failer(-1), '0')
-  // we expect it to convert string numbers to Number, but doesn't do that
-  t.equal(failer('1'), '2')
-  // we expect it to convert non-numerics to 0, but that doesn't happen
-  t.equal(failer({}), '1')
+  t.test('failer', t => {
+    t.equal(failer(1), '2')
+    t.equal(failer(-1), '0')
+    // we expect it to convert string numbers to Number, but doesn't do that
+    t.equal(failer('1'), '2')
+    // we expect it to convert non-numerics to 0, but that doesn't happen
+    t.equal(failer({}), '1')
+    t.end()
+  })
+
   t.end()
 })

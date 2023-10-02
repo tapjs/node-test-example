@@ -4,14 +4,22 @@
   "description": "Showing interoperability between node --test and tap",
   "type": "module",
   "devDependencies": {
-    "tap": "^18.0.1"
+    "tap": "^18.4.2",
+    "typescript": "5.2"
   },
   "scripts": {
     "test:tap": "tap",
     "test:node": "node --test",
-    "test": "npm run test:tap && npm run test:node"
+    "test:mix": "tap --coverage-report=none --allow-incomplete-coverage test/tap.test.js; NODE_V8_COVERAGE=.tap/coverage node --test test/node.test.js; tap report",
+    "test:cross": "tap --coverage-report=none --allow-incomplete-coverage test/node.test.js; NODE_V8_COVERAGE=.tap/coverage node --test test/tap.test.js; tap report",
+    "test": "npm run test:tap ; npm run test:node"
   },
   "engines": {
     "node": ">=20.6.1"
+  },
+  "tap": {
+    "plugin": [
+      "!@tapjs/typescript"
+    ]
   }
 }

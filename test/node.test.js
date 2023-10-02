@@ -19,17 +19,19 @@ test('stringOrNull', () => {
   assert.equal(stringOrNull(1), '1')
 })
 
-test('uhoh, this one throws', () => {
-  assert.equal(thrower(0), '1970-01-01T00:00:00.000Z')
-  assert.equal(thrower(1234567891011), '2009-02-13T23:31:31.011Z')
-  assert.equal(thrower({}), 'Invalid Date')
-})
+test('suite of tests that fail', async t => {
+  await t.test('uhoh, this one throws', () => {
+    assert.equal(thrower(0), '1970-01-01T00:00:00.000Z')
+    assert.equal(thrower(1234567891011), '2009-02-13T23:31:31.011Z')
+    assert.equal(thrower({}), 'Invalid Date')
+  })
 
-test('failer', () => {
-  assert.equal(failer(1), '2')
-  assert.equal(failer(-1), '0')
-  // we expect it to convert string numbers to Number, but doesn't do that
-  assert.equal(failer('1'), '2')
-  // we expect it to convert non-numerics to 0, but that doesn't happen
-  assert.equal(failer({}), '1')
+  await t.test('failer', () => {
+    assert.equal(failer(1), '2')
+    assert.equal(failer(-1), '0')
+    // we expect it to convert string numbers to Number, but doesn't do that
+    assert.equal(failer('1'), '2')
+    // we expect it to convert non-numerics to 0, but that doesn't happen
+    assert.equal(failer({}), '1')
+  })
 })
