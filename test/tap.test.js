@@ -31,9 +31,9 @@ t.test('suite of tests that fail', t => {
   t.test('failer', t => {
     t.equal(failer(1), '2')
     t.equal(failer(-1), '0')
-    // we expect it to convert string numbers to Number, but doesn't do that
+    // expect to convert string numbers to Number, but doesn't
     t.equal(failer('1'), '2')
-    // we expect it to convert non-numerics to 0, but that doesn't happen
+    // expect to convert non-numerics to 0, but it doesn't
     t.equal(failer({}), '1')
     t.end()
   })

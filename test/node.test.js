@@ -29,9 +29,9 @@ test('suite of tests that fail', async t => {
   await t.test('failer', () => {
     assert.equal(failer(1), '2')
     assert.equal(failer(-1), '0')
-    // we expect it to convert string numbers to Number, but doesn't do that
+    // expect to convert string numbers to Number, but doesn't
     assert.equal(failer('1'), '2')
-    // we expect it to convert non-numerics to 0, but that doesn't happen
+    // expect to convert non-numerics to 0, but it doesn't
     assert.equal(failer({}), '1')
   })
 })
