@@ -65,6 +65,10 @@ Then you can use `tap report` to report on it.
 
 ## Enough talk! Show the output!
 
+GitHub strips colors from README.md files. [A more representative
+example with colors can be found on the node-tap
+website.](https://node-tap.org/node-test-interop/#enough-talk!-show-the-output!)
+
 Running with `tap`:
 
 <pre style="color:#eeeeee;background:#222222"><span style="font-weight:bold;color:#ffffff;background:#f00"> FAIL </span> test/node.test.js <span style="color:#f00;background:#222222">2 failed</span> of <span style="font-weight:bold;color:#eeeeee;background:#222222">4</span> <span style="color:#b2b2b2;background:#222222">6.834ms</span>
